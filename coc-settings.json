@@ -1,0 +1,27 @@
+{
+    "diagnostic.errorSign": "✖",
+    "diagnostic.warningSign": "⚠",
+    "diagnostic.infoSign": "ℹ",
+    "diagnostic.hintSign": "➤",
+    "suggest.noselect": false,
+    "suggest.echodocSupport": true,
+    "codeLens.enable": true,
+    "signature.enable": true,
+    "suggest.preferCompleteThanJumpPlaceholder": true,
+    "eslint.autoFixOnSave": true,
+    "tsserver.implicitProjectConfig.experimentalDecorators": true,
+    "python.venvFolders": ["envs",".pyenv",".direnv", "~/.local/share/virtualenvs", "~/.cache/pypoetry/virtualenvs"],
+    "python.workspaceSymbols.exclusionPatterns": [],
+    "python.jediEnabled": false,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": ["--load-plugins", "pylint_django"],
+	
+	"languageserver": {
+	  "fortran": {
+		"command": "fortls",
+		"filetypes": ["fortran"],
+		"rootPatterns": [".fortls", ".git/"]
+	  }
+  },
+  "clangd.path": "/home/andrew_u/.config/coc/extensions/coc-clangd-data/install/12.0.0/clangd_12.0.0/bin/clangd"
+}
