@@ -66,5 +66,19 @@ if !exists('g:airline_symbols')
 	let g:airline_symbols.readonly = ''
 	" let g:airline_symbols.linenr = ''
 
-	inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
+" To make completion works like VSCode
+" <Tab>: completion
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-N>" :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+" <S-Tab>: completion back
+inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-P>" : "\<C-H>"
+" <CR>: confirm completion, or insert <CR>
+inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
 
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1] =~ '\s'
+endfunction
